@@ -76,9 +76,11 @@ const onFileChange = (e: Event) => {
 };
 
 const formattedBoletaData = computed(() => {
-  return boletaData.value.map((boleta) => ({
+  const raw = boletaData.value;
+  const data = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  return data.map((boleta) => ({
     ...boleta,
-    alumno: boleta.alumno.split(" Modalidad educativa:")[0],
+    alumno: typeof boleta.alumno === "string" ? boleta.alumno.split(" Modalidad educativa:")[0] : boleta.alumno,
   }));
 });
 
@@ -88,5 +90,5 @@ const uploadBoleta = async () => {
 };
 
 // Datos del store
-const { boletaData, loading, error } = storeToRefs(boletaStore);
+const { boletaData, error } = storeToRefs(boletaStore);
 </script>

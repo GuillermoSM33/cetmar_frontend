@@ -75,13 +75,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { ChartOptions } from 'chart.js'
 import BarChart from './charts/BarChart.vue'
 import DoughnutChart from './charts/DoughnutChart.vue'
 import LineChart from './charts/LineChart.vue'
 
 const selectedCareer = ref<string | null>(null)
-
-const chartOptions = {
+const chartOptions: ChartOptions<'doughnut'> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -89,8 +89,7 @@ const chartOptions = {
   },
 }
 
-/* Configuración especial para el gráfico principal (detectar clics) */
-const especialidadOptions = {
+const especialidadOptions: ChartOptions<'doughnut'> = {
   ...chartOptions,
   onClick: (_evt: any, elements: any) => {
     if (elements.length > 0) {
@@ -100,7 +99,6 @@ const especialidadOptions = {
     }
   },
 }
-
 /* 1. Datos principales de especialidad */
 const especialidadData = {
   labels: ['Vida Saludable', 'Servicios de Hospedaje', 'Lab. Ambiental', 'Sistemas de Información'],

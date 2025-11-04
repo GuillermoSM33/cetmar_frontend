@@ -11,11 +11,12 @@ import {
   Legend,
   ArcElement,
 } from 'chart.js'
+import type { ChartData, ChartOptions } from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement)
 
 defineProps<{
-  data: object
-  options?: object
+  data: ChartData<'doughnut', number[], unknown>
+  options?: ChartOptions<'doughnut'>
 }>()
 </script>

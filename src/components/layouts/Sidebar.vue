@@ -186,7 +186,7 @@ interface NavItem {
   children?: NavItem[];
 }
 
-const props = defineProps<{
+defineProps<{
   navItems: NavItem[];
 }>();
 

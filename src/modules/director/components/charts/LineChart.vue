@@ -14,6 +14,7 @@ import {
   LinearScale,
   PointElement,
 } from 'chart.js'
+import type { ChartData, Point } from 'chart.js'
 
 ChartJS.register(
   Title,
@@ -26,7 +27,7 @@ ChartJS.register(
 )
 
 defineProps<{
-  data: object
+  data: ChartData<'line', (number | Point | null)[], unknown>
   options?: object
 }>()
 </script>

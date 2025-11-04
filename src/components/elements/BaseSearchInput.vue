@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import SearchIcon from "@/assets/icons/Search.svg";
 
-const props = defineProps<{
+defineProps<{
   modelValue: string;
   placeholder?: string;
   customClass?: string;
